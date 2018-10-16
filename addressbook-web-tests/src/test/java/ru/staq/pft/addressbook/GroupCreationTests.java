@@ -19,12 +19,10 @@ public class GroupCreationTests {
     driver = new FirefoxDriver();
     baseUrl = "https://www.katalon.com/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    driver.get("http://localhost/addressbook/group.php");
+    driver.get("http://localhost/addressbook/");
     driver.findElement(By.name("user")).click();
     driver.findElement(By.name("user")).clear();
     driver.findElement(By.name("user")).sendKeys("admin");
-    driver.findElement(By.id("LoginForm")).click();
-    driver.findElement(By.name("pass")).click();
     driver.findElement(By.name("pass")).clear();
     driver.findElement(By.name("pass")).sendKeys("secret");
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]")).click();
@@ -36,13 +34,11 @@ public class GroupCreationTests {
     driver.findElement(By.name("new")).click();
     driver.findElement(By.name("group_name")).click();
     driver.findElement(By.name("group_name")).clear();
-    driver.findElement(By.name("group_name")).sendKeys("test78");
-    driver.findElement(By.name("group_header")).click();
+    driver.findElement(By.name("group_name")).sendKeys("test8");
     driver.findElement(By.name("group_header")).clear();
-    driver.findElement(By.name("group_header")).sendKeys("test78");
-    driver.findElement(By.name("group_footer")).click();
+    driver.findElement(By.name("group_header")).sendKeys("test8");
     driver.findElement(By.name("group_footer")).clear();
-    driver.findElement(By.name("group_footer")).sendKeys("test78");
+    driver.findElement(By.name("group_footer")).sendKeys("test8");
     driver.findElement(By.name("submit")).click();
     driver.findElement(By.linkText("group page")).click();
   }
