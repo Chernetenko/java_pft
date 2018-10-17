@@ -22,10 +22,6 @@ public class GroupDeletionTests extends TestBase {
         driver = new FirefoxDriver();
         baseUrl = "https://www.katalon.com/";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    }
-
-    @Test
-    public void testGroupDeletion() throws Exception {
         driver.get("http://localhost/addressbook/group.php");
         driver.findElement(By.name("user")).click();
         driver.findElement(By.name("user")).clear();
@@ -33,6 +29,10 @@ public class GroupDeletionTests extends TestBase {
         driver.findElement(By.name("pass")).clear();
         driver.findElement(By.name("pass")).sendKeys("secret");
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]")).click();
+    }
+
+    @Test
+    public void testGroupDeletion() throws Exception {
         driver.findElement(By.linkText("groups")).click();
         driver.findElement(By.name("selected[]")).click();
         driver.findElement(By.name("delete")).click();
