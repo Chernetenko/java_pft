@@ -10,18 +10,18 @@ public class GroupDeletionTests extends TestBase {
 
     @BeforeClass(alwaysRun = true)
     public void setUp() throws Exception {
-        app.driver = new FirefoxDriver();
+        FirefoxDriver driver = new FirefoxDriver();
         app.baseUrl = "https://www.katalon.com/";
-        app.driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @Test
     public void testGroupDeletion() throws Exception {
         app.login2();
-        app.gotoGroupPage();
-        app.selectGroup();
-        app.deleteSelectedGroups();
-        app.returnToGroupPage();
+        app.getNavigationHelper().gotoGroupPage();
+        app.getGroupHelper().selectGroup();
+        app.getGroupHelper().deleteSelectedGroups();
+        app.getGroupHelper().returnToGroupPage();
     }
 
 }
