@@ -24,7 +24,7 @@ public class TestBase {
         login("admin", "secret");
     }
 
-    private void login(String username, String password) {
+    void login(String username, String password) {
         driver.findElement(By.name("user")).click();
         driver.findElement(By.name("user")).clear();
         driver.findElement(By.name("user")).sendKeys(username);
@@ -72,7 +72,7 @@ public class TestBase {
         }
     }
 
-    private boolean isElementPresent(By by) {
+    boolean isElementPresent(By by) {
         try {
             driver.findElement(by);
             return true;
@@ -81,7 +81,7 @@ public class TestBase {
         }
     }
 
-    private boolean isAlertPresent() {
+    boolean isAlertPresent() {
         try {
             driver.switchTo().alert();
             return true;
@@ -90,7 +90,7 @@ public class TestBase {
         }
     }
 
-    private String closeAlertAndGetItsText() {
+    String closeAlertAndGetItsText() {
         try {
             Alert alert = driver.switchTo().alert();
             String alertText = alert.getText();
@@ -103,5 +103,36 @@ public class TestBase {
         } finally {
             acceptNextAlert = true;
         }
+    }
+
+    protected void deleteSelectedGroups() {
+        driver.findElement(By.name("delete")).click();
+    }
+
+    protected void selectGroup() {
+        driver.findElement(By.name("selected[]")).click();
+    }
+
+    protected void login() {
+        driver.get("http://localhost/addressbook/");
+        driver.findElement(By.name("user")).click();
+        driver.findElement(By.name("user")).clear();
+        driver.findElement(By.name("user")).sendKeys("admin");
+        driver.findElement(By.id("LoginForm")).click();
+        driver.findElement(By.name("pass")).click();
+        driver.findElement(By.name("pass")).clear();
+        driver.findElement(By.name("pass")).sendKeys("secret");
+    }
+
+    protected void login2() {
+        driver.get("http://localhost/addressbook/");
+        driver.findElement(By.name("user")).click();
+        driver.findElement(By.name("user")).clear();
+        driver.findElement(By.name("user")).sendKeys("admin");
+        driver.findElement(By.id("LoginForm")).click();
+        driver.findElement(By.name("pass")).click();
+        driver.findElement(By.name("pass")).clear();
+        driver.findElement(By.name("pass")).sendKeys("secret");
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]")).click();
     }
 }
