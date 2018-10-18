@@ -1,4 +1,4 @@
-package ru.staq.pft.addressbook;
+package ru.staq.pft.addressbook.tests;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeClass;
@@ -10,18 +10,18 @@ public class GroupDeletionTests extends TestBase {
 
     @BeforeClass(alwaysRun = true)
     public void setUp() throws Exception {
-        driver = new FirefoxDriver();
-        baseUrl = "https://www.katalon.com/";
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        app.driver = new FirefoxDriver();
+        app.baseUrl = "https://www.katalon.com/";
+        app.driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @Test
     public void testGroupDeletion() throws Exception {
-        login2();
-        gotoGroupPage();
-        selectGroup();
-        deleteSelectedGroups();
-        returnToGroupPage();
+        app.login2();
+        app.gotoGroupPage();
+        app.selectGroup();
+        app.deleteSelectedGroups();
+        app.returnToGroupPage();
     }
 
 }
