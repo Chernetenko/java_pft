@@ -10,10 +10,10 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.fail;
 
 public class TestBase {
-    private WebDriver driver;
-    private String baseUrl;
-    private boolean acceptNextAlert = true;
-    private StringBuffer verificationErrors = new StringBuffer();
+    WebDriver driver;
+    String baseUrl;
+    boolean acceptNextAlert = true;
+    StringBuffer verificationErrors = new StringBuffer();
 
     @BeforeClass(alwaysRun = true)
     public void setUp() throws Exception {
